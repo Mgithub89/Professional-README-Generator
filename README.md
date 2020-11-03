@@ -1,12 +1,12 @@
 
-# Readme Generator
+# Professional Readme Generator
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg "License Badge")
  
 Explore the [project-page](https://github.com/Mgithub89/Professional-README-Generator)
 
 ## Description
-A command-line application that dynamically generates a professional README.md file  for a new project from a user's input using the Inquirer package based on users acceptance criteria.
+A command-line application that dynamically generates a professional README.md file  for a new project from a user's input using the Inquirer package based on users acceptance criteria. 
 
 ## Table Of Contents 
 * [Installation](#Installation)
@@ -18,11 +18,12 @@ A command-line application that dynamically generates a professional README.md f
 * [Questions](#Questions)
 
 ## Installation
-* npm i
+* just fork and use it
 
 ## usage
-* 1.	To quickly create a professional README for a new project
-2.	 Run â€œnode index.js â€�  into your command line and answer the questions provided in the terminal.
+* Run  node index.js  into your command line and answer the questions provided in the terminal.
+* A walkthrough video https://drive.google.com/file/d/1L1sTxYiJ_P-TizOYZFdRJkgpt5PvxzTs/view .
+
 
 
 ## Technologies used
@@ -31,7 +32,7 @@ A command-line application that dynamically generates a professional README.md f
 * node
 
 ## Contributing
-* fell free to contribute. just contact me via email and fork my repo
+* Feel free to contribute. just contact me via email and fork my project
 
 ## Tests
 * none
@@ -42,7 +43,6 @@ A command-line application that dynamically generates a professional README.md f
  * [License](https://opensource.org/licenses/MIT)
 
 ## Questions
-* visit my [github profile](https://github.com/mgithub89)
-* for Questions you can reach me at [metages09@gmail.com](mailto:metages09@gmail.com)
-
+* For Questions you can reach me at [metages09@gmail.com](mailto:metages09@gmail.com)
+* visit my [github profile](https://github.com/Mgithub89)
         

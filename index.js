@@ -22,7 +22,7 @@ const promptUser = () =>
             },
 
             {
-                type: "editor",
+                type: "input",
                 message: "please provide a breif description about the project?",
                 name: "description"
             },
@@ -33,7 +33,7 @@ const promptUser = () =>
                 name: "installation"
             },
             {
-                type: 'editor',
+                type: 'input',
                 name: 'Howtouse',
                 message: 'please tell user how to use the app',
             },
@@ -79,6 +79,7 @@ const promptUser = () =>
                 type: "input",
                 message: "please provide yor email ?",
                 name: "email",
+                //email validation . copied from stack overflow.
                 validate: function validateEmail(email) {
                     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     return re.test(String(email).toLowerCase());
@@ -130,9 +131,8 @@ ${answers.description}
  * [License](https://opensource.org/licenses/${answers.License})
 
 ## Questions
+* For Questions you can reach me at [${answers.email}](mailto:${answers.email})
 * visit my [github profile](https://github.com/${answers.username})
-* for Questions you can reach me at [${answers.email}](mailto:${answers.email})
-
         `
 promptUser()
     .then((answers) => {
