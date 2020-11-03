@@ -28,7 +28,7 @@ const promptUser = () =>
             },
 
             {
-                type: "editor",
+                type: "input",
                 message: "pls provide installation instruction about the project?",
                 name: "installation"
             },
@@ -38,7 +38,7 @@ const promptUser = () =>
                 message: 'please tell user how to use the app',
             },
             {
-                type: "editor",
+                type: "input",
                 message: "pls provide contribution guidlines for this project?",
                 name: "contribution"
             },
@@ -65,7 +65,8 @@ const promptUser = () =>
                 choices: [
                     "MIT",
                     "Apache",
-                    "ISC"
+                    "ISC",
+                    "None"
                 ]
 
             },
@@ -77,7 +78,11 @@ const promptUser = () =>
             {
                 type: "input",
                 message: "please provide yor email ?",
-                name: "email"
+                name: "email",
+                validate: function validateEmail(email) {
+                    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return re.test(String(email).toLowerCase());
+                }
             },
         ])
 
@@ -85,42 +90,48 @@ const promptUser = () =>
 const generateREADME = (answers) =>
     `
 # ${answers.title}
+
 ![License](https://img.shields.io/badge/License-${answers.License}-green.svg "License Badge")
  
 Explore the [project-page](${answers.url})
 
-### Description
+## Description
 ${answers.description}
 
-
- ## Table Of Contents 
-* [Installation Instructions](#Installation-Instructions)
-* [How To Use The App](#How-to-use-the-app)
+## Table Of Contents 
+* [Installation](#Installation)
+* [Usage](#Usage)
 * [Technologies Used](#Technologies-Used)
-* [Contributing Guidelines](#Contributing-Guidelines)
-* [Test Information](#Test-Information)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
 * [License](#License)
 * [Questions](#Questions)
 
- ## Installation Instructions
+## Installation
 * ${answers.installation}
-## How to use the app
+
+## usage
 * ${answers.Howtouse}
+
 ## Technologies used
 * ${answers.Technology[0]}
 * ${answers.Technology[1]}
 * ${answers.Technology[2]}
-## Contributing Guidelines
-${answers.contribution}
-## Test Information
-${answers.test}
- ## License 
- ![License](https://img.shields.io/badge/License-${answers.License}-blue.svg "License Badge")
+
+## Contributing
+* ${answers.contribution}
+
+## Tests
+* ${answers.test}
+
+## License 
+ ![License](https://img.shields.io/badge/License-${answers.License}-green.svg "License Badge")
  For more information about the License , click on the link below.
  * [License](https://opensource.org/licenses/${answers.License})
-## Questions
 
-* [${answers.email}](mailto:${answers.email})
+## Questions
+* visit my [github profile](https://github.com/${answers.username})
+* for Questions you can reach me at [${answers.email}](mailto:${answers.email})
 
         `
 promptUser()
