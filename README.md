@@ -22,7 +22,7 @@ A command-line application that dynamically generates a professional README.md f
 
 ## usage
 * Run  node index.js  into your command line and answer the questions provided in the terminal.
-* A walkthrough video https://drive.google.com/file/d/1L1sTxYiJ_P-TizOYZFdRJkgpt5PvxzTs/view .
+* ![A walkthrough video](https://drive.google.com/file/d/1L1sTxYiJ_P-TizOYZFdRJkgpt5PvxzTs/view) .
 
 
 
