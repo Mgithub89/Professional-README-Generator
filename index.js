@@ -10,49 +10,42 @@ const promptUser = () =>
         .prompt([
             {
                 type: "input",
-                message: "What is your project name?",
-                name: "name"
+                message: "What is your project title?",
+                name: "title"
             },
-            {
-                type: "confirm",
-                message: "Do you have a github repo for this project?",
-                name: "githubrepo"
-            },
+
             {
                 type: "input",
                 message: "pls provide github repo url of your project",
                 name: "url",
-                when: function (answers) {
-                    return answers.githubrepo
-                }
+
             },
-            {
-                type: "checkbox",
-                message: "what is your table of content includes ?",
-                name: "tablecontent",
-                choices: [
-                    "About-the-project ",
-                    "Objective",
-                    "How-to-use-the-app",
-                    "Technology-used",
-                    "License",
-                    "Contact"
-                ]
-            },
+
             {
                 type: "editor",
-                message: "please tell user about the project?",
-                name: "About"
+                message: "please provide a breif description about the project?",
+                name: "description"
             },
+
             {
-                type: 'editor',
-                name: 'Objective',
-                message: 'What is the objective of the project?',
+                type: "editor",
+                message: "pls provide installation instruction about the project?",
+                name: "installation"
             },
             {
                 type: 'editor',
                 name: 'Howtouse',
                 message: 'please tell user how to use the app',
+            },
+            {
+                type: "editor",
+                message: "pls provide contribution guidlines for this project?",
+                name: "contribution"
+            },
+            {
+                type: "input",
+                message: "pls provide test instructions for this project?",
+                name: "test"
             },
             {
                 type: 'checkbox',
@@ -66,7 +59,7 @@ const promptUser = () =>
                 ]
             },
             {
-                type: 'checkbox',
+                type: 'list',
                 name: 'License',
                 message: 'what license you used ?',
                 choices: [
@@ -78,6 +71,11 @@ const promptUser = () =>
             },
             {
                 type: "input",
+                message: "What is your github username?",
+                name: "username"
+            },
+            {
+                type: "input",
                 message: "please provide yor email ?",
                 name: "email"
             },
@@ -86,33 +84,41 @@ const promptUser = () =>
 
 const generateREADME = (answers) =>
     `
- # ${answers.name}
+# ${answers.title}
+![License](https://img.shields.io/badge/License-${answers.License}-green.svg "License Badge")
+ 
+Explore the [project-page](${answers.url})
 
- Explore the [project-page](${answers.url})
+### Description
+${answers.description}
 
-### Table of contents
- - [About-The-Project](#About-The-Project)
- - [Objective](#Objective)
- - [How-to-use-the-app](#How-to-use-the-app)
- - [Technologies-used](#Technologies-used)
- - [License](#License)
- - [Contact](#Contact)
 
- ## About The Project
-* ${answers.About}
-## Objective
-* ${answers.Objective}
+ ## Table Of Contents 
+* [Installation Instructions](#Installation-Instructions)
+* [How To Use The App](#How-to-use-the-app)
+* [Technologies Used](#Technologies-Used)
+* [Contributing Guidelines](#Contributing-Guidelines)
+* [Test Information](#Test-Information)
+* [License](#License)
+* [Questions](#Questions)
+
+ ## Installation Instructions
+* ${answers.installation}
 ## How to use the app
 * ${answers.Howtouse}
 ## Technologies used
 * ${answers.Technology[0]}
 * ${answers.Technology[1]}
 * ${answers.Technology[2]}
+## Contributing Guidelines
+${answers.contribution}
+## Test Information
+${answers.test}
  ## License 
  ![License](https://img.shields.io/badge/License-${answers.License}-blue.svg "License Badge")
- For more information about the License , click on the likk below.
+ For more information about the License , click on the link below.
  * [License](https://opensource.org/licenses/${answers.License})
-## Contact
+## Questions
 
 * [${answers.email}](mailto:${answers.email})
 
